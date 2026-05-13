@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Portfólio | Maurício Dos Santos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#08101F;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background:
+  radial-gradient(circle at top left, rgba(255,98,71,0.15), transparent 30%),
+  radial-gradient(circle at top right, rgba(255,98,71,0.08), transparent 25%),
+  #08101F;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+
+  background-image:
+  linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+
+  background-size:40px 40px;
+
+  opacity:0.3;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
+  backdrop-filter:blur(16px);
+
+  background:rgba(8,16,31,0.7);
+
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.header-container{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:24px;
+}
+
+.logo{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#fff;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  color:#94A3B8;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.25s;
+}
+
+nav a:hover{
+  color:#FF6B4A;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+
+  max-width:1200px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  align-items:center;
+
+  gap:40px;
+
+  padding:120px 24px 60px;
+}
+
+.hero-text small{
+  color:#FF6B4A;
+  font-size:20px;
+  font-weight:600;
+}
+
+.hero-text h1{
+  font-size:76px;
+  line-height:0.95;
+  margin-top:12px;
+  font-weight:800;
+}
+
+.hero-text h2{
+  margin-top:24px;
+  font-size:28px;
+  font-weight:400;
+  color:#CBD5E1;
+  max-width:700px;
+  line-height:1.5;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  margin-top:40px;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.25s;
+}
+
+.btn-primary{
+  background:#FF6B4A;
+  color:white;
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+}
+
+.btn-outline{
+  border:1px solid #FF6B4A;
+  color:white;
+}
+
+.btn-outline:hover{
+  background:#FF6B4A;
+}
+
+/* ================= HERO CARD ================= */
+
+.hero-card{
+  background:#101827;
+
+  border:1px solid rgba(255,255,255,0.06);
+
+  border-radius:28px;
+
+  padding:40px;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+
+  width:380px;
+  height:380px;
+
+  border-radius:50%;
+
+  border:18px solid rgba(255,107,74,0.15);
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+}
+
+.hero-card::after{
+  content:"";
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  border-radius:50%;
+
+  border:12px solid rgba(255,107,74,0.35);
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.profile-photo{
+  width:320px;
+  height:420px;
+
+  object-fit:cover;
+  object-position:center top;
+
+  border-radius:22px;
+
+  position:relative;
+  z-index:2;
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    0 0 40px rgba(255,107,74,0.18);
+
+  transition:0.35s ease;
+}
+
+.profile-photo:hover{
+  transform:translateY(-6px) scale(1.01);
+}
+
+/* ================= TECH STACK ================= */
+
+.tech-stack{
+  max-width:1200px;
+  margin:auto;
+
+  margin-top:-20px;
+
+  background:#101827;
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  border-radius:18px;
+
+  padding:24px;
+
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.tech-stack span{
+  color:#94A3B8;
+  font-size:14px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 24px;
+}
+
+.section-title{
+  font-size:48px;
+  margin-bottom:50px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:70px;
+}
+
+.about-cards{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.info-card{
+  background:#101827;
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  border-radius:20px;
+
+  padding:26px;
+}
+
+.info-card h3{
+  color:#fff;
+  margin-bottom:12px;
+}
+
+.info-card p{
+  color:#94A3B8;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.about-text p{
+  color:#CBD5E1;
+  line-height:2;
+  font-size:16px;
+}
+
+.stats{
+  margin-top:50px;
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:50px;
+}
+
+.stat h4{
+  font-size:42px;
+  color:#FF6B4A;
+}
+
+.stat span{
+  color:#94A3B8;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.project-card{
+  background:#101827;
+
+  border-radius:22px;
+
+  padding:30px;
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  transition:0.25s;
+}
+
+.project-card:hover{
+  transform:translateY(-8px);
+  border-color:#FF6B4A;
+}
+
+.project-card h3{
+  font-size:24px;
+}
+
+.project-card p{
+  margin-top:14px;
+  color:#94A3B8;
+  line-height:1.8;
+}
+
+.project-links{
+  margin-top:24px;
+  display:flex;
+  gap:18px;
+}
+
+.project-links a{
+  color:#FF6B4A;
+  text-decoration:none;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.skill-box{
+  background:#101827;
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  border-radius:20px;
+
+  padding:28px;
+}
+
+.skill-box h3{
+  color:#FF6B4A;
+  margin-bottom:18px;
+}
+
+.skill-box p{
+  color:#94A3B8;
+  line-height:1.9;
+}
+
+/* ================= BOOTCAMPS ================= */
+
+.bootcamps-box{
+  background:#101827;
+
+  border-radius:24px;
+
+  padding:40px;
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+  gap:16px;
+}
+
+.bootcamps-box p{
+  color:#94A3B8;
+  transition:0.2s;
+  line-height:1.7;
+}
+
+.bootcamps-box p:hover{
+  color:#fff;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+  background:#101827;
+
+  border-radius:24px;
+
+  padding:40px;
+
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.contact-links{
+  margin-top:24px;
+
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.contact-links a{
+  color:#FF6B4A;
+  text-decoration:none;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:40px;
+  color:#6B7280;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-text h1{
+    font-size:58px;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:700px){
+
+  nav{
+    display:none;
+  }
+
+  .hero-text h1{
+    font-size:42px;
+  }
+
+  .hero-text h2{
+    font-size:20px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .hero-content img{
+    width:220px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-container">
+
+    <div class="logo">
+      MAURÍCIO DOS SANTOS
+    </div>
+
+    <nav>
+      <a href="#about">Sobre</a>
+      <a href="#projects">Projetos</a>
+      <a href="#conhecimentos">Conhecimentos</a>
+      <a href="#bootcamps">Formações</a>
+      <a href="#contact">Contato</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-text">
+
+    <h1>
+      Maurício<br>
+      Dos Santos
+    </h1>
+
+    <h2>
+      Desenvolvedor com foco em arquitetura de software, dados, automação e soluções escaláveis.
+    </h2>
+
+    <div class="hero-buttons">
+
+      <a href="#projects" class="btn btn-primary">
+        Projetos
+      </a>
+
+      <a href="https://github.com/Hyouem" class="btn btn-outline">
+        GitHub
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+
+  <div class="hero-content">
+
+  <img
+    class="profile-photo"
+    <img
+  class="profile-photo"
+  src="./mauricio.png"
+  alt="Maurício Dos Santos">
+
+</div>
+
+  </div>
+
+</section>
+
+<!-- STACK -->
+
+<div class="tech-stack">
+
+  <span>Java</span>
+  <span>Python</span>
+  <span>Spring</span>
+  <span>.NET</span>
+  <span>Node.js</span>
+  <span>React</span>
+  <span>Docker</span>
+  <span>Azure</span>
+
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <h2 class="section-title">
+    Sobre mim
+  </h2>
+
+  <div class="about">
+
+    <div class="about-cards">
+
+      <div class="info-card">
+        <h3>Arquitetura</h3>
+        <p>
+          Desenvolvimento backend com foco em organização, escalabilidade e boas práticas.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Dados & IA</h3>
+        <p>
+          Experiência com automação, ETL, análise de dados e aplicações com IA.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Cloud & DevOps</h3>
+        <p>
+          Deploy, containers, pipelines e infraestrutura moderna.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="about-text">
+
+      <p>
+        Sou desenvolvedor com perfil analítico, disciplinado e orientado à resolução de problemas.
+        Tenho facilidade em estruturar informações, organizar processos e transformar desafios complexos
+        em soluções claras e eficientes.
+      </p>
+
+      <p style="margin-top:24px;">
+        Valorizo consistência, aprendizado contínuo e desenvolvimento de soluções bem estruturadas,
+        sempre com foco em qualidade, organização e melhoria contínua.
+      </p>
+
+      <div class="stats">
+
+        <div class="stat">
+          <h4>1000+</h4>
+          <span>Certificações</span>
+        </div>
+
+        <div class="stat">
+          <h4>Java</h4>
+          <span>Backend Focus</span>
+        </div>
+
+        <div class="stat">
+          <h4>.NET</h4>
+          <span>Arquitetura</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <h2 class="section-title">
+    Projetos
+  </h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+
+      <h3>Password Generator</h3>
+
+      <p>
+        Gerador de senhas seguras com foco em JavaScript e manipulação de DOM.
+      </p>
+
+      <div class="project-links">
+
+        <a href="https://password-generator-ten-pi-11.vercel.app/">
+          Acessar
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <h3>QR Code Generator</h3>
+
+      <p>
+        Aplicação para geração dinâmica de QR Codes com interface responsiva.
+      </p>
+
+      <div class="project-links">
+
+        <a href="https://hyouem-qr-generator.vercel.app/">
+          Acessar
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <h3>DIO Open Source</h3>
+
+      <p>
+        Repositório com contribuições open source e práticas com Git/GitHub.
+      </p>
+
+      <div class="project-links">
+
+        <a href="https://github.com/Hyouem/dio-lab-open-source">
+          Repositório
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <h3>GitHub</h3>
+
+      <p>
+        Perfil com projetos, estudos, automações e aplicações backend.
+      </p>
+
+      <div class="project-links">
+
+        <a href="https://github.com/Hyouem">
+          Perfil
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONHECIMENTOS -->
+
+<section id="conhecimentos">
+
+  <h2 class="section-title">
+    Conhecimentos
+  </h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-box">
+      <h3>Linguagens de Programação</h3>
+      <p>
+        Java<br>
+        Python<br>
+        JavaScript<br>
+        TypeScript<br>
+        C<br>
+        C++<br>
+        C#<br>
+        HTML / HTML5<br>
+        SQL
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Frameworks e Bibliotecas</h3>
+      <p>
+        Spring<br>
+        Django<br>
+        Flask<br>
+        FastAPI<br>
+        React<br>
+        Node.js<br>
+        Express<br>
+        Fastify<br>
+        Entity Framework Core<br>
+        Pandas<br>
+        Scikit-Learn<br>
+        TensorFlow<br>
+        Keras<br>
+        OpenCV
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Cloud e Plataformas</h3>
+      <p>
+        Microsoft Azure<br>
+        AWS (Amazon Web Services)<br>
+        Google Cloud Platform (GCP)<br>
+        Cloud Run
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Bancos de Dados</h3>
+      <p>
+        MySQL<br>
+        PostgreSQL<br>
+        SQL Server<br>
+        SQLite<br>
+        MongoDB<br>
+        Neo4j
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Dados, BI e Analytics</h3>
+      <p>
+        Power BI<br>
+        Excel<br>
+        ETL (Extração, Transformação e Carga)<br>
+        Data Modeling<br>
+        PyTorch
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Testes e Qualidade de Software</h3>
+      <p>
+        Jest<br>
+        Cucumber<br>
+        Postman<br>
+        Cypress<br>
+        Selenium<br>
+        JUnit<br>
+        Mockito
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>DevOps e Infraestrutura</h3>
+      <p>
+        Docker<br>
+        Kubernetes<br>
+        Terraform<br>
+        Jenkins
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Ferramentas e Versionamento</h3>
+      <p>
+        Git<br>
+        GitHub<br>
+        GitLab<br>
+        Maven<br>
+        Gradle<br>
+        NPM
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Sistemas e Infraestrutura</h3>
+      <p>
+        Linux<br>
+        Windows<br>
+        Redes TCP/IP<br>
+        Segurança da Informação<br>
+        Pentest
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BOOTCAMPS -->
+
+<section id="bootcamps">
+
+  <h2 class="section-title">
+    Bootcamps & Formações
+  </h2>
+
+  <div class="bootcamps-box">
+
+    <div class="bootcamps-box">
+
+<p>Accenture - Desenvolvimento Java & Cloud</p>
+<p>Accenture - Python para Análise e Automação de Dados II</p>
+<p>Accenture - Python para Análise e Automação de Dados</p>
+<p>Aceleração Microsoft - Gestão de Dados & IA II</p>
+<p>Aceleração Microsoft - Gestão de Dados & IA</p>
+<p>Aceleração Microsoft - IA Arquitetura de Dados II</p>
+<p>Aceleração Microsoft - IA Arquitetura de Dados</p>
+<p>Aceleração Microsoft AI Agents II</p>
+<p>Aceleração Microsoft AI Agents</p>
+<p>Aceleração Microsoft Week - Vibe Coding</p>
+<p>Almaviva - Back-end com Java & QA</p>
+<p>Avanade - Back-end com .NET e IA II</p>
+<p>Avanade - Back-end com .NET e IA</p>
+<p>Blip - Lógica de Programação</p>
+<p>Bradesco - GenAI & Dados</p>
+<p>CAIXA - Inteligência Artificial na Prática</p>
+<p>CI&T - Backend com Java & AWS</p>
+<p>CI&T - Do Prompt ao Agente II</p>
+<p>CI&T - Do Prompt ao Agente</p>
+<p>DIO Campus Expert 15</p>
+<p>Formação Automação de Testes com Cypress</p>
+<p>Formação CI CD com GitLab</p>
+<p>Formação Fundamentos de Inteligência Artificial</p>
+<p>Formação Github Certification</p>
+<p>Formação Google Cloud Platform (GCP) Specialist</p>
+<p>Formação IoT Specialist</p>
+<p>Formação Java Developer II</p>
+<p>Formação Java Developer</p>
+<p>Formação Java Fundamentals II</p>
+<p>Formação Java Fundamentals</p>
+<p>Formação JavaScript Developer II</p>
+<p>Formação JavaScript Developer</p>
+<p>Formação Lógica de Programação</p>
+<p>Formação Machine Learning Specialist</p>
+<p>Formação Power BI Analyst II</p>
+<p>Formação Power BI Analyst</p>
+<p>Formação Python Backend Developer</p>
+<p>Formação Python Fundamentals II</p>
+<p>Formação Python Fundamentals</p>
+<p>Formação Quality Assurance (QA) Experience</p>
+<p>Formação Scrum Master Certification</p>
+<p>Formação SQL Database Specialist II</p>
+<p>Formação SQL Database Specialist</p>
+<p>Formação TypeScript Fullstack Developer</p>
+<p>Formação UI UX Designer</p>
+<p>Formação Unity 3D Game Developer II</p>
+<p>Formação Unity 3D Game Developer</p>
+<p>GitHub Copilot - Código na Prática</p>
+<p>Jornada Para o Futuro - Node.js</p>
+<p>Klabin - Excel e Power BI Dashboards 2026 II</p>
+<p>Klabin - Excel e Power BI Dashboards 2026</p>
+<p>Klabin - Excel e Power BI Dashboards</p>
+<p>Luizalabs - Back-end com Python - 2ª Edição II</p>
+<p>Luizalabs - Back-end com Python - 2ª Edição III</p>
+<p>Luizalabs - Back-end com Python - 2ª Edição</p>
+<p>Luizalabs - Back-end com Python II</p>
+<p>Luizalabs - Back-end com Python</p>
+<p>Lupo - Primeiros Passos com Inteligência Artificial</p>
+<p>Microsoft Azure Cloud Native 2026 II</p>
+<p>Microsoft Azure Cloud Native 2026</p>
+<p>Microsoft Certification Challenge #5 - AI 102 II</p>
+<p>Microsoft Certification Challenge #5 - AI 102</p>
+<p>Microsoft Certification Challenge #5 - AZ-204 II</p>
+<p>Microsoft Certification Challenge #5 - AZ-204</p>
+<p>Microsoft Certification Challenge #5 - DP 100 II</p>
+<p>Microsoft Certification Challenge #5 - DP 100</p>
+<p>Neo4J - Análise de Dados com Grafos II</p>
+<p>Neo4J - Análise de Dados com Grafos</p>
+<p>Nexa - Fundamentos de IA Generativa com Bedrock</p>
+<p>Nexa - Machine Learning e GenAI na Prática II</p>
+<p>Nexa - Machine Learning e GenAI na Prática</p>
+<p>Riachuelo - Cibersegurança</p>
+<p>Riachuelo - Primeiros Passos com Java</p>
+<p>Santander 2025 - Back-End com Python II</p>
+<p>Santander 2025 - Back-End com Python</p>
+<p>Santander 2025 - Ciência de Dados com Python</p>
+<p>Santander AI Youtube Creator</p>
+<p>Suzano - Python Developer</p>
+<p>TIVIT - .Net com GitHub Copilot</p>
+<p>TOTVS - Fundamentos de Engenharia de Dados e Machine Learning</p>
+<p>Vivo - Python AI Backend Developer II</p>
+<p>Vivo - Python AI Backend Developer</p>
+
+</div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="contact-box">
+
+    <h2 class="section-title">
+      Contato
+    </h2>
+
+    <div class="contact-links">
+
+      <a href="mailto:mauricio72613@gmail.com">
+        mauricio72613@gmail.com
+      </a>
+
+      <a href="https://github.com/Hyouem">
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/mauricio-dos-santos-/">
+        LinkedIn
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Maurício Dos Santos
+</footer>
+
+</body>
+</html>
