@@ -3,1048 +3,603 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>Portfólio | Maurício Dos Santos</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root{
+  --bg:#090012;
+  --bg-deep:#05000b;
+  --panel:rgba(22,5,37,.72);
+  --panel-strong:rgba(35,7,55,.86);
+  --text:#fff7ff;
+  --muted:#bfa8d8;
+  --soft:#eadcff;
+  --hot:#ff00e6;
+  --hot2:#ff2bd6;
+  --violet:#8a2bff;
+  --cyan:#00eaff;
+  --blue:#3a6cff;
+  --line:rgba(255,255,255,.14);
+  --line-hot:rgba(255,0,230,.45);
+  --radius:28px;
+  --shadow:0 32px 110px rgba(0,0,0,.72);
 }
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  font-family:'Inter',sans-serif;
-  background:#08101F;
-  color:#fff;
+  font-family:Inter,sans-serif;
+  background:var(--bg-deep);
+  color:var(--text);
   overflow-x:hidden;
+  min-height:100vh;
 }
-
-/* ================= BACKGROUND ================= */
-
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:-2;
-
+  z-index:-4;
   background:
-  radial-gradient(circle at top left, rgba(255,98,71,0.15), transparent 30%),
-  radial-gradient(circle at top right, rgba(255,98,71,0.08), transparent 25%),
-  #08101F;
+    radial-gradient(circle at 12% 6%,rgba(255,0,230,.42),transparent 25%),
+    radial-gradient(circle at 85% 10%,rgba(0,234,255,.24),transparent 28%),
+    radial-gradient(circle at 60% 88%,rgba(138,43,255,.32),transparent 34%),
+    linear-gradient(180deg,#090012 0%,#10001c 42%,#07000d 100%);
 }
-
 body::after{
   content:"";
   position:fixed;
   inset:0;
-  z-index:-1;
-
-  background-image:
-  linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-
-  background-size:40px 40px;
-
-  opacity:0.3;
+  z-index:-3;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px);
+  background-size:64px 64px,64px 64px,100% 5px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.92),rgba(0,0,0,.42));
+  opacity:.95;
 }
-
-/* ================= HEADER ================= */
-
-header{
+.aurora{
   position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 320px at 50% -8%,rgba(255,0,230,.36),transparent 65%),
+    radial-gradient(660px 260px at 75% 38%,rgba(0,234,255,.18),transparent 70%),
+    radial-gradient(880px 360px at 30% 78%,rgba(138,43,255,.22),transparent 70%);
+  filter:blur(6px);
+}
+a{color:inherit}
+header{
+  position:sticky;
   top:0;
-  width:100%;
-  z-index:1000;
-
-  backdrop-filter:blur(16px);
-
-  background:rgba(8,16,31,0.7);
-
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  z-index:50;
+  background:rgba(7,0,13,.70);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,0,230,.28);
+  box-shadow:0 0 45px rgba(255,0,230,.10);
 }
-
 .header-container{
-  max-width:1200px;
+  max-width:1320px;
   margin:auto;
-
+  padding:18px 28px;
   display:flex;
+  align-items:center;
   justify-content:space-between;
-  align-items:center;
-
-  padding:24px;
 }
-
 .logo{
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:#fff;
-}
-
-nav{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
   display:flex;
-  gap:30px;
-}
-
-nav a{
-  color:#94A3B8;
-  text-decoration:none;
-  font-size:14px;
-  transition:0.25s;
-}
-
-nav a:hover{
-  color:#FF6B4A;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  min-height:100vh;
-
-  max-width:1200px;
-  margin:auto;
-
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
   align-items:center;
-
-  gap:40px;
-
-  padding:120px 24px 60px;
+  gap:12px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(255,0,230,.65);
 }
-
-.hero-text small{
-  color:#FF6B4A;
-  font-size:20px;
-  font-weight:600;
+.logo::before{
+  content:"MS";
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  color:#fff;
+  letter-spacing:0;
+  font-size:12px;
+  border:1px solid var(--line-hot);
+  background:linear-gradient(135deg,rgba(255,0,230,.26),rgba(0,234,255,.10));
+  box-shadow:0 0 28px rgba(255,0,230,.32), inset 0 0 28px rgba(255,255,255,.07);
 }
-
-.hero-text h1{
-  font-size:76px;
-  line-height:0.95;
-  margin-top:12px;
-  font-weight:800;
-}
-
-.hero-text h2{
-  margin-top:24px;
-  font-size:28px;
-  font-weight:400;
-  color:#CBD5E1;
-  max-width:700px;
-  line-height:1.5;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:18px;
-  margin-top:40px;
-}
-
-.btn{
-  padding:14px 28px;
-  border-radius:8px;
+nav{display:flex;gap:8px;align-items:center}
+nav a{
   text-decoration:none;
-  font-weight:600;
-  transition:0.25s;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:900;
+  padding:10px 14px;
+  border-radius:999px;
+  transition:.25s;
+  border:1px solid transparent;
 }
-
-.btn-primary{
-  background:#FF6B4A;
-  color:white;
+nav a:hover{
+  color:#fff;
+  border-color:rgba(255,0,230,.34);
+  background:rgba(255,0,230,.10);
+  box-shadow:0 0 24px rgba(255,0,230,.18);
 }
-
-.btn-primary:hover{
-  transform:translateY(-4px);
-}
-
-.btn-outline{
-  border:1px solid #FF6B4A;
-  color:white;
-}
-
-.btn-outline:hover{
-  background:#FF6B4A;
-}
-
-/* ================= HERO CARD ================= */
-
-.hero-card{
-  background:#101827;
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  border-radius:28px;
-
-  padding:40px;
-
-  position:relative;
-
+section{max-width:1320px;margin:auto;padding:108px 28px;position:relative}
+.hero{
+  max-width:none;
+  min-height:calc(100vh - 79px);
+  display:grid;
+  grid-template-columns:minmax(320px,1.02fr) minmax(320px,.98fr);
+  gap:54px;
+  align-items:center;
+  padding:86px max(28px,calc((100vw - 1320px)/2 + 28px)) 86px;
   overflow:hidden;
 }
-
-.hero-card::before{
+.hero::before{
   content:"";
   position:absolute;
-
-  width:380px;
-  height:380px;
-
-  border-radius:50%;
-
-  border:18px solid rgba(255,107,74,0.15);
-
-  top:50%;
-  left:50%;
-
-  transform:translate(-50%,-50%);
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(9,0,18,.98) 0%,rgba(9,0,18,.76) 44%,rgba(9,0,18,.36) 100%),
+    radial-gradient(circle at 80% 18%,rgba(255,0,230,.28),transparent 30%),
+    radial-gradient(circle at 82% 58%,rgba(0,234,255,.16),transparent 28%);
 }
-
-.hero-card::after{
-  content:"";
+.hero::after{
+  content:"</>  API  SQL  REST  SPRING  ANGULAR  POSTGRESQL  CLOUD";
   position:absolute;
-
-  width:280px;
-  height:280px;
-
-  border-radius:50%;
-
-  border:12px solid rgba(255,107,74,0.35);
-
-  top:50%;
-  left:50%;
-
-  transform:translate(-50%,-50%);
+  right:-120px;
+  top:22%;
+  width:560px;
+  color:rgba(0,234,255,.17);
+  font-size:18px;
+  font-weight:900;
+  line-height:2.2;
+  letter-spacing:10px;
+  transform:rotate(90deg);
+  text-shadow:0 0 22px rgba(0,234,255,.55);
+  pointer-events:none;
 }
-
-.hero-content{
+.eyebrow{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:11px 16px;
+  border:1px solid rgba(255,0,230,.42);
+  background:linear-gradient(90deg,rgba(255,0,230,.16),rgba(0,234,255,.08));
+  border-radius:999px;
+  color:#ffd9fb;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:26px;
+  box-shadow:0 0 28px rgba(255,0,230,.18);
+}
+.hero h1{
+  font-size:clamp(58px,8.3vw,124px);
+  line-height:.82;
+  font-weight:900;
+  letter-spacing:-6px;
+  margin-bottom:30px;
+  text-transform:uppercase;
+  text-shadow:0 0 38px rgba(255,0,230,.24);
+}
+.gradient-text{
+  background:linear-gradient(90deg,#fff 0%,#ff9cf5 32%,#00eaff 68%,#fff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 24px rgba(255,0,230,.35));
+}
+.hero h2{
+  font-size:clamp(22px,3vw,40px);
+  line-height:1.2;
+  color:#fff;
+  font-weight:900;
+  max-width:900px;
+  margin-bottom:18px;
+  text-shadow:0 0 18px rgba(0,234,255,.18);
+}
+.hero p{font-size:19px;line-height:1.8;color:var(--soft);max-width:720px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:14px 24px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:900;
+  font-size:14px;
+  transition:.25s;
+  border:1px solid rgba(255,255,255,.16);
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--hot),var(--violet));
+  color:#fff;
+  box-shadow:0 0 30px rgba(255,0,230,.38),0 18px 45px rgba(0,0,0,.35);
+}
+.btn-outline{
+  background:rgba(255,255,255,.045);
+  color:#fff;
+  border-color:rgba(0,234,255,.38);
+  box-shadow:inset 0 0 24px rgba(0,234,255,.04);
+}
+.btn:hover{transform:translateY(-4px);filter:brightness(1.12)}
+.hero-panel{
   position:relative;
-  z-index:2;
-  text-align:center;
+  min-height:610px;
+  border:1px solid rgba(255,0,230,.28);
+  border-radius:42px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035)),
+    radial-gradient(circle at 50% 18%,rgba(255,0,230,.22),transparent 44%),
+    radial-gradient(circle at 65% 78%,rgba(0,234,255,.13),transparent 48%);
+  box-shadow:var(--shadow),0 0 70px rgba(255,0,230,.18),inset 0 0 70px rgba(255,255,255,.045);
+  overflow:hidden;
+  padding:34px;
 }
-
+.hero-panel::before{
+  content:"";
+  position:absolute;
+  inset:-35%;
+  background:conic-gradient(from 90deg,transparent,rgba(255,0,230,.18),transparent,rgba(0,234,255,.12),transparent);
+  animation:spin 16s linear infinite;
+  opacity:.9;
+}
+.hero-panel::after{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:32px;
+  pointer-events:none;
+}
+.profile-wrap{position:relative;z-index:2;height:100%;display:grid;place-items:center}
+.profile-wrap::before{
+  content:"";
+  position:absolute;
+  width:min(560px,82vw);
+  height:min(560px,82vw);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,0,230,.34),rgba(0,234,255,.16) 42%,transparent 70%);
+  filter:blur(8px);
+  opacity:.9;
+}
+.profile-tag{display:none!important}
+.profile-orbit{
+  position:absolute;
+  width:min(500px,82vw);
+  height:min(500px,82vw);
+  border-radius:50%;
+  border:1px solid rgba(0,234,255,.22);
+  box-shadow:0 0 55px rgba(0,234,255,.10),inset 0 0 55px rgba(255,0,230,.08);
+  animation:spin 20s linear infinite;
+}
+.profile-orbit::before,.profile-orbit::after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 28px var(--cyan);
+  top:58px;
+  left:52px;
+}
+.profile-orbit::after{background:var(--hot);box-shadow:0 0 28px var(--hot);top:auto;left:auto;right:70px;bottom:52px}
+@keyframes spin{to{transform:rotate(360deg)}}
 .profile-photo{
-  width:320px;
-  height:420px;
-
+  position:relative;
+  z-index:3;
+  width:min(470px,84vw);
+  height:540px;
   object-fit:cover;
   object-position:center top;
-
-  border-radius:22px;
-
-  position:relative;
-  z-index:2;
-
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    0 0 40px rgba(255,107,74,0.18);
-
-  transition:0.35s ease;
+  border-radius:32px;
+  border:1px solid rgba(255,255,255,.30);
+  box-shadow:0 35px 100px rgba(0,0,0,.72),0 0 80px rgba(255,0,230,.22),0 0 55px rgba(0,234,255,.11);
 }
-
-.profile-photo:hover{
-  transform:translateY(-6px) scale(1.01);
-}
-
-/* ================= TECH STACK ================= */
-
+.floating-card{display:none!important}
 .tech-stack{
-  max-width:1200px;
-  margin:auto;
-
-  margin-top:-20px;
-
-  background:#101827;
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  border-radius:18px;
-
-  padding:24px;
-
+  max-width:1320px;
+  margin:-42px auto 0;
+  padding:0 28px;
   display:flex;
-  justify-content:space-between;
   flex-wrap:wrap;
-  gap:20px;
+  gap:12px;
+  position:relative;
+  z-index:4;
 }
-
 .tech-stack span{
-  color:#94A3B8;
-  font-size:14px;
+  padding:12px 16px;
+  border:1px solid rgba(255,0,230,.26);
+  background:linear-gradient(135deg,rgba(255,0,230,.13),rgba(0,234,255,.06));
+  backdrop-filter:blur(14px);
+  border-radius:999px;
+  color:#fff;
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 0 24px rgba(255,0,230,.10);
 }
-
-/* ================= SECTIONS ================= */
-
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:120px 24px;
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:48px}
+.section-kicker{
+  color:var(--cyan);
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  text-shadow:0 0 14px rgba(0,234,255,.45);
 }
-
 .section-title{
-  font-size:48px;
-  margin-bottom:50px;
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:70px;
-}
-
-.about-cards{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-}
-
-.info-card{
-  background:#101827;
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:26px;
-}
-
-.info-card h3{
+  font-size:clamp(38px,5.2vw,68px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:-2.8px;
+  text-transform:uppercase;
   color:#fff;
-  margin-bottom:12px;
+  text-shadow:0 0 28px rgba(255,0,230,.22);
 }
-
-.info-card p{
-  color:#94A3B8;
-  font-size:14px;
-  line-height:1.7;
+.section-subtitle{color:var(--muted);line-height:1.8;max-width:580px}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}
+.about-card,.glass-card,.about-pill,.project-card,.skill-box,.repo-panel,.cert-shell,.contact-box{
+  position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 24px 80px rgba(0,0,0,.38),inset 0 0 32px rgba(255,255,255,.025);
+  backdrop-filter:blur(18px);
 }
-
-.about-text p{
-  color:#CBD5E1;
-  line-height:2;
-  font-size:16px;
+.about-card::before,.about-pill::before,.project-card::before,.skill-box::before,.repo-panel::before,.cert-shell::before,.contact-box::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(255,0,230,.54),rgba(0,234,255,.22),rgba(138,43,255,.42));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:.75;
 }
-
-.stats{
-  margin-top:50px;
-
-  display:flex;
-  flex-wrap:wrap;
-  gap:50px;
-}
-
-.stat h4{
-  font-size:42px;
-  color:#FF6B4A;
-}
-
-.stat span{
-  color:#94A3B8;
-}
-
-/* ================= PROJECTS ================= */
-
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-}
-
-.project-card{
-  background:#101827;
-
+.about-card{padding:36px;border-radius:var(--radius)}
+.about-card h3{font-size:24px;margin-bottom:16px;color:#fff}
+.about-card p,.about-text p{color:var(--soft);line-height:1.9;margin-top:18px}
+.about-pill-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.about-pill{padding:24px;border-radius:22px;overflow:hidden}
+.about-pill h3{color:#fff;margin-bottom:10px;text-shadow:0 0 16px rgba(255,0,230,.25)}
+.about-pill p{color:var(--muted);line-height:1.7;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.stat{
+  padding:24px;
   border-radius:22px;
-
-  padding:30px;
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  transition:0.25s;
+  background:linear-gradient(135deg,rgba(255,0,230,.15),rgba(0,234,255,.06));
+  border:1px solid rgba(255,255,255,.13);
 }
-
-.project-card:hover{
-  transform:translateY(-8px);
-  border-color:#FF6B4A;
-}
-
-.project-card h3{
-  font-size:24px;
-}
-
-.project-card p{
-  margin-top:14px;
-  color:#94A3B8;
-  line-height:1.8;
-}
-
-.project-links{
-  margin-top:24px;
-  display:flex;
-  gap:18px;
-}
-
-.project-links a{
-  color:#FF6B4A;
-  text-decoration:none;
-}
-
-/* ================= SKILLS ================= */
-
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:22px;
-}
-
-.skill-box{
-  background:#101827;
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:28px;
-}
-
-.skill-box h3{
-  color:#FF6B4A;
-  margin-bottom:18px;
-}
-
-.skill-box p{
-  color:#94A3B8;
-  line-height:1.9;
-}
-
-/* ================= BOOTCAMPS ================= */
-
-.bootcamps-box{
-  background:#101827;
-
-  border-radius:24px;
-
-  padding:40px;
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  display:grid;
-
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-  gap:16px;
-}
-
-.bootcamps-box p{
-  color:#94A3B8;
-  transition:0.2s;
-  line-height:1.7;
-}
-
-.bootcamps-box p:hover{
-  color:#fff;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-box{
-  background:#101827;
-
-  border-radius:24px;
-
-  padding:40px;
-
-  border:1px solid rgba(255,255,255,0.05);
-}
-
-.contact-links{
-  margin-top:24px;
-
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-}
-
-.contact-links a{
-  color:#FF6B4A;
-  text-decoration:none;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  text-align:center;
-  padding:40px;
-  color:#6B7280;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:980px){
-
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-text h1{
-    font-size:58px;
-  }
-
-  .about{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:700px){
-
-  nav{
-    display:none;
-  }
-
-  .hero-text h1{
-    font-size:42px;
-  }
-
-  .hero-text h2{
-    font-size:20px;
-  }
-
-  .section-title{
-    font-size:34px;
-  }
-
-  .hero-content img{
-    width:220px;
-  }
-
-}
+.stat h4{font-size:46px;color:#fff;text-shadow:0 0 22px rgba(255,0,230,.42)}
+.stat span{color:var(--soft);font-size:14px;font-weight:900}
+.certifications{padding-top:42px}
+.cert-shell{overflow:hidden;padding:36px;border-radius:34px;background:linear-gradient(135deg,rgba(255,0,230,.16),rgba(0,234,255,.07),rgba(138,43,255,.14));box-shadow:var(--shadow),0 0 70px rgba(255,0,230,.16)}
+.cert-shell::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent,rgba(255,255,255,.10),transparent);transform:translateX(-100%);animation:sheen 7s infinite;pointer-events:none}@keyframes sheen{45%,100%{transform:translateX(100%)}}
+.cert-intro{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:30px;z-index:1}
+.cert-intro h3{font-size:34px;text-transform:uppercase}.cert-intro p{color:var(--muted);margin-top:8px;line-height:1.7}
+.cert-count{font-size:60px;font-weight:900;line-height:1;color:#fff;text-shadow:0 0 32px rgba(255,0,230,.55)}
+.badge-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:14px;align-items:center}
+.cert-badge{height:82px;display:grid;place-items:center;border-radius:20px;background:rgba(4,0,10,.58);border:1px solid rgba(255,0,230,.22);transition:.25s;overflow:hidden;box-shadow:inset 0 0 24px rgba(255,255,255,.03),0 0 22px rgba(255,0,230,.08)}
+.cert-badge img{width:66px!important;height:66px!important;max-width:66px!important;max-height:66px!important;object-fit:contain!important;display:block!important;filter:drop-shadow(0 0 10px rgba(255,0,230,.18))}
+.cert-badge:hover{transform:translateY(-7px) scale(1.05);border-color:rgba(0,234,255,.62);background:rgba(255,0,230,.11);box-shadow:0 0 34px rgba(255,0,230,.24)}
+.projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.project-card{padding:26px;border-radius:26px;transition:.25s;min-height:322px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,rgba(34,5,52,.82),rgba(9,0,18,.70))}
+.project-card::after{content:"";position:absolute;right:-45px;top:-45px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(255,0,230,.24),transparent 65%);pointer-events:none}
+.project-card:hover{transform:translateY(-8px);box-shadow:0 28px 90px rgba(0,0,0,.44),0 0 38px rgba(255,0,230,.18)}
+.project-topline{display:flex;justify-content:space-between;gap:12px;margin-bottom:24px;font-size:10px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:1.2px}.project-topline strong{color:var(--cyan);text-shadow:0 0 10px rgba(0,234,255,.4)}
+.project-card h3{font-size:22px;line-height:1.2;margin-bottom:12px;color:#fff}.project-card p{color:var(--muted);line-height:1.7;font-size:14px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.tags span{font-size:11px;font-weight:900;color:#fff;border:1px solid rgba(0,234,255,.20);background:rgba(0,234,255,.07);border-radius:999px;padding:7px 9px}
+.project-link{margin-top:auto;color:#fff;font-weight:900;text-decoration:none;font-size:14px;text-shadow:0 0 14px rgba(255,0,230,.55)}
+.repo-panel{margin-top:28px;padding:34px;border-radius:32px;display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:start;background:linear-gradient(135deg,rgba(255,0,230,.13),rgba(0,234,255,.07))}
+.repo-panel h3{font-size:38px;line-height:1;margin-bottom:14px}.repo-panel p{color:var(--muted);line-height:1.8;margin-bottom:24px}.repo-list{display:flex;flex-wrap:wrap;gap:10px}.repo-list a{text-decoration:none;color:var(--soft);font-size:13px;font-weight:900;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);transition:.22s}.repo-list a:hover{color:#fff;border-color:rgba(255,0,230,.58);transform:translateY(-2px);box-shadow:0 0 20px rgba(255,0,230,.14)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.skill-box{padding:28px;border-radius:26px}.skill-box h3{color:#fff;margin-bottom:14px;text-shadow:0 0 18px rgba(255,0,230,.32)}.skill-box p{color:var(--muted);line-height:1.9}
+.contact-box{padding:58px;border-radius:36px;text-align:center;background:linear-gradient(135deg,rgba(255,0,230,.20),rgba(0,234,255,.09),rgba(138,43,255,.18))}.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:28px}.contact-links a{text-decoration:none;color:#fff;font-weight:900;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:0 0 22px rgba(255,0,230,.10)}
+footer{padding:38px 24px;text-align:center;color:rgba(255,255,255,.48)}
+@media(max-width:1100px){.hero{grid-template-columns:1fr;padding-left:28px;padding-right:28px}.about-grid,.repo-panel{grid-template-columns:1fr}.projects-grid{grid-template-columns:repeat(2,1fr)}.skills-grid{grid-template-columns:repeat(2,1fr)}.hero::after{display:none}.hero-panel{max-width:640px;margin:auto;width:100%}}
+@media(max-width:720px){nav{display:none}.header-container{padding:16px 18px}.logo{letter-spacing:2px;font-size:11px}section{padding:76px 18px}.hero{padding:60px 18px 76px}.hero h1{letter-spacing:-3px}.hero-panel{min-height:460px;padding:18px;border-radius:28px}.profile-photo{height:410px;width:min(360px,84vw);border-radius:24px}.profile-orbit{width:340px;height:340px}.stats{grid-template-columns:1fr}.projects-grid,.skills-grid{grid-template-columns:1fr}.section-head,.cert-intro{display:block}.badge-grid{grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:10px}.cert-badge{height:66px;border-radius:15px}.cert-badge img{width:53px!important;height:53px!important;max-width:53px!important;max-height:53px!important}.section-title{letter-spacing:-1.5px}.cert-count{font-size:48px;margin-top:18px}}
 
 </style>
 </head>
-
 <body>
-
-<header>
-
-  <div class="header-container">
-
-    <div class="logo">
-      MAURÍCIO DOS SANTOS
-    </div>
-
-    <nav>
-      <a href="#about">Sobre</a>
-      <a href="#projects">Projetos</a>
-      <a href="#conhecimentos">Conhecimentos</a>
-      <a href="#bootcamps">Formações</a>
-      <a href="#contact">Contato</a>
-    </nav>
-
-  </div>
-
-</header>
-
-<!-- HERO -->
-
+<div class="aurora"></div>
+<header><div class="header-container"><div class="logo">Maurício Dos Santos</div><nav><a href="#about">Sobre</a><a href="#bootcamps">Formações</a><a href="#projects">Projetos</a><a href="#conhecimentos">Conhecimentos</a><a href="#contact">Contato</a></nav></div></header>
+<main>
 <section class="hero" id="home">
-
-  <div class="hero-text">
-
-    <h1>
-      Maurício<br>
-      Dos Santos
-    </h1>
-
-    <h2>
-      Desenvolvedor com foco em arquitetura de software, dados, automação e soluções escaláveis.
-    </h2>
-
-    <div class="hero-buttons">
-
-      <a href="#projects" class="btn btn-primary">
-        Projetos
-      </a>
-
-      <a href="https://github.com/Hyouem" class="btn btn-outline">
-        GitHub
-      </a>
-
-    </div>
-
-  </div>
-
-  <div class="hero-card">
-
-  <div class="hero-content">
-
-  <img
-    class="profile-photo"
-    <img
-  class="profile-photo"
-  src="./mauricio.png"
-  alt="Maurício Dos Santos">
-
-</div>
-
-  </div>
-
+  <div class="hero-text"><div class="eyebrow">Java • Spring Boot • Angular • REST APIs • SQL</div><h1><span class="gradient-text">Maurício</span><br>Dos Santos</h1><h2>Desenvolvedor Backend Java | Spring Boot | Angular | APIs REST | SQL/PostgreSQL</h2><p>Construindo APIs, integrações e soluções escaláveis com foco em qualidade, arquitetura, performance e dados.</p><div class="hero-buttons"><a href="#projects" class="btn btn-primary">Ver projetos</a><a href="https://github.com/Hyouem" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub completo</a></div></div>
+  <div class="hero-panel"><div class="profile-wrap"><div class="profile-orbit"></div><img class="profile-photo" src="./mauricio.png" alt="Maurício Dos Santos"></div></div>
 </section>
-
-<!-- STACK -->
-
-<div class="tech-stack">
-
-  <span>Java</span>
-  <span>Python</span>
-  <span>Spring</span>
-  <span>.NET</span>
-  <span>Node.js</span>
-  <span>React</span>
-  <span>Docker</span>
-  <span>Azure</span>
-
-</div>
-
-<!-- ABOUT -->
-
+<div class="tech-stack"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>APIs REST</span><span>SQL</span><span>PostgreSQL</span><span>Docker</span><span>Azure</span><span>Cloud</span><span>IA</span></div>
 <section id="about">
-
-  <h2 class="section-title">
-    Sobre mim
-  </h2>
-
-  <div class="about">
-
-    <div class="about-cards">
-
-      <div class="info-card">
-        <h3>Arquitetura</h3>
-        <p>
-          Desenvolvimento backend com foco em organização, escalabilidade e boas práticas.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>Dados & IA</h3>
-        <p>
-          Experiência com automação, ETL, análise de dados e aplicações com IA.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>Cloud & DevOps</h3>
-        <p>
-          Deploy, containers, pipelines e infraestrutura moderna.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="about-text">
-
-      <p>
-        Sou desenvolvedor com perfil analítico, disciplinado e orientado à resolução de problemas.
-        Tenho facilidade em estruturar informações, organizar processos e transformar desafios complexos
-        em soluções claras e eficientes.
-      </p>
-
-      <p style="margin-top:24px;">
-        Valorizo consistência, aprendizado contínuo e desenvolvimento de soluções bem estruturadas,
-        sempre com foco em qualidade, organização e melhoria contínua.
-      </p>
-
-      <div class="stats">
-
-        <div class="stat">
-          <h4>1000+</h4>
-          <span>Certificações</span>
-        </div>
-
-        <div class="stat">
-          <h4>Java</h4>
-          <span>Backend Focus</span>
-        </div>
-
-        <div class="stat">
-          <h4>.NET</h4>
-          <span>Arquitetura</span>
-        </div>
-
-      </div>
-
-    </div>
-
+  <div class="section-head"><div><div class="section-kicker">Perfil profissional</div><h2 class="section-title">Sobre mim</h2></div><p class="section-subtitle">Java, Spring Boot, Angular, APIs REST e soluções orientadas ao negócio.</p></div>
+  <div class="about-grid">
+    <div class="about-pill-grid"><div class="about-pill"><h3>Backend Java & APIs</h3><p>Construção de APIs REST, integrações e serviços com Java, Spring Boot e foco em manutenibilidade.</p></div><div class="about-pill"><h3>Angular & Integração</h3><p>Experiência com interfaces Angular, consumo de APIs e integração entre frontend, backend e banco de dados.</p></div><div class="about-pill"><h3>SQL & Entrega</h3><p>Modelagem relacional, PostgreSQL, organização, versionamento e visão de processo aplicada ao desenvolvimento.</p></div></div>
+    <div class="about-card about-text"><h3>Desenvolvedor de Software</h3><p>Desenvolvedor de software com perfil analítico e forte orientação à resolução de problemas, atuando principalmente no desenvolvimento backend com Java, Spring Boot, APIs REST e bancos de dados relacionais.</p><p>Atuo com foco na construção de soluções eficientes, escaláveis e alinhadas às necessidades do negócio, priorizando qualidade, organização e boas práticas de desenvolvimento.</p><p>Possuo facilidade para compreender requisitos, estruturar processos e transformar demandas complexas em soluções tecnológicas consistentes e sustentáveis. Valorizo código limpo, arquitetura bem definida e a busca contínua por aprimoramento técnico, sempre com atenção à performance, manutenibilidade e confiabilidade das aplicações.</p><p>Minha experiência também inclui desenvolvimento frontend com Angular, modelagem de bancos de dados SQL/PostgreSQL e integração entre sistemas, permitindo uma visão completa do ciclo de desenvolvimento de software.</p><p>Comprometido com a excelência na entrega de resultados, acredito na tecnologia como ferramenta estratégica para otimização de processos, geração de valor e inovação.</p><div class="stats"><div class="stat"><h4>57+</h4><span>Bootcamps e Formações</span></div><div class="stat"><h4>47+</h4><span>Projetos Públicos</span></div><div class="stat"><h4>7+</h4><span>Anos de Experiência Profissional</span></div></div></div>
   </div>
-
 </section>
-
-<!-- PROJECTS -->
-
+<section id="bootcamps" class="certifications">
+  <div class="section-head"><div><div class="section-kicker">Certificações verificáveis</div><h2 class="section-title">Bootcamps, Cursos e Formações</h2></div><p class="section-subtitle">Badges clicáveis com link direto para os certificados.</p></div>
+  <div class="cert-shell"><div class="cert-intro"><div><h3>57+ formações concluídas</h3><p>Java • .NET • Python • Cloud • IA • Dados • DevOps • QA</p></div><div class="cert-count">57+</div></div><div class="badge-grid">
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/90A06O4Z.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/8RcUe3w3vTHDVfWFik75MdHPa7ZXBqx_umEgmjw4lM8/f:webp/h:120/q:80/L3RyYWNrcy83ZjhjNWVmOS0xNmRiLTQyYTMtYjVkNS0xMTE0YjU5MWY0MmYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/9RDEDCSF.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://hermes.dio.me/tracks/b59fc09f-4d67-4fcd-b4ec-3aeb7b11a654.png" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/F844SVGM.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/_KS-rLlHKM_OQty1m4BWL8EzbH584h7dxCADrkTqtDE/f:webp/h:120/q:80/L3RyYWNrcy9mNTcyZDdhNi00NGZkLTRhYmQtYjc1Ny04OTFhYmE3OTM0NTEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/GOP4TQR9.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/fuNAa2Q2yIHrRpXvnQE86Fbny4g5Y4uqukhX-39CwVY/f:webp/h:120/q:80/L3RyYWNrcy85YzNkZmQzYi1hODMyLTRiYWMtOTM4MC1lNWI3ZGUyYmUxNDAucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/HQUGINEJ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/fmurnmImYsLpbR26s6Rsrxi82t-6iYqTlwkJGBzm0mI/f:webp/h:120/q:80/L3RyYWNrcy8yMzk0ODU4NS1iZTdmLTRlZjctODQxNi1iOGUwYWFhYWYyZjcucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/BH4KTLRI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/dZkPyFnVJoc-omqwRWJPbrBoFxTdVOn-qcZGozxO5OE/f:webp/h:120/q:80/L3RyYWNrcy9lNTRmYWQ4NC01ZDcwLTRmNTUtYjhjYS01YjMwOGNjZDUzOWIucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/O2JNRQ78.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/QiKZwwG6MHqy-zBa5OwIrHckmx_VHG3FePSRSLHAyt0/f:webp/h:120/q:80/L3RyYWNrcy8wMjVkNGQ0Ny02MjhlLTQzMGMtYjljNS1hMTExNTkwN2I5MGQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/GAHAER1N.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/2Ta15xVlAHFzgUZ0CsEkb6_j20UKGteRBKuEXOuiQMw/f:webp/h:120/q:80/L3RyYWNrcy84ZTNmOTllYy05ODMxLTQzZDctOGI2OC1mMjVjOGEyZDU3MGYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/UTHML2VA.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/68BpwSpV4B8xfXd-1zDRCZuyetfxONA0P6-WEvx9EKk/f:webp/h:120/q:80/L3RyYWNrcy9kMmI2MDQ4Ny0wMjExLTRkOTAtYTA2NC1kOGM3YTdhMDc0MGUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/F3QM8MXT.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/wcNQ2hjJnQLbCr5FEX-tCJQNF_Ywe9t5Btcsr_fGH8s/f:webp/h:120/q:80/L3RyYWNrcy80YzIxOTcwYy1iMmJiLTQxMWUtYTkyYy0zZGM1N2I5MGVlZjYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/W5IKOZOC.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/xpg727feOCFHSMAL25KWbqwBMk3omWspkWlx3TqMbJU/f:webp/h:120/q:80/L3RyYWNrcy9jZmVjZGRiOC04ODljLTQwM2YtOGVkYi01NzcxYjk3ZTk4MmYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/Y84AZXBC.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/XeSGwYIOI2Xvl-7_WTEcgvxCHX-BBwsBtkI5fY7ParU/f:webp/h:120/q:80/L3RyYWNrcy80ZGViNDBkZS03ZmI2LTQyMjktYTZhNS05NzE4NTM4MWQ1NzcucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/9LPW3F0J.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/N3ET28fsUKPyJZb6mh6vdqhVziWjbk3xPNlE_velBWs/f:webp/h:120/q:80/L3RyYWNrcy85NzIyOTdkYy00MzU3LTRhZjQtYWJlYS04OWEzODg1M2E5NDkucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/JFTSNDIC.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/xpWTGnn4RjIc_gIhamGj3fAej0xL4IDTIHx5ngdZc5E/f:webp/h:120/q:80/L3RyYWNrcy9hNjY4NmFhOC1kYWYzLTQyNmUtYWU4ZC1kNDgxZTVhOTI1MjAucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/6UWX8RPX.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/kWC6SXqjlSjfntRsakCW1eF81MlAVGRKK7nQYjlgGm0/f:webp/h:120/q:80/L3RyYWNrcy9iOTYzMTE1Yi02NWZjLTQ3MGItYjg3Yi1lOTg4MjUxYjhhMjEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/LJHNP9UY.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/KIwdxM7_x0DPiyrnNEBcio7DYZDqtaSz2G4OPaSsLgs/f:webp/h:120/q:80/L3RyYWNrcy9kYTYwNDFhOS04MGVmLTQwOWUtYmQ1MC01ZTdiZTRkZmFkZjYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/5VJYPCBC.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/fa0gvCd0huOU-oqW51SQ4wHDvLsUFpqYTwzY_8rMQos/f:webp/h:120/q:80/L3RyYWNrcy84OTdhMjVmMS0wYjdjLTQ5ZmYtYTA1MC0wNDkwYzI2OGZjYmUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/GIHD4HX1.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/_ImeVq2qMIfyFkoYC-epZ9o-1X9soGtq69WUykqhiL4/f:webp/h:120/q:80/L3RyYWNrcy81NWU3MDQwZi03NzViLTQ3ZTUtYThmYi02OWQwMDJjYTE3YTkucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/MRFNTR19.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/JdBTHUCmNxrrJUiTJ2Xr3uCb3ERnBFWVbLU0kZlfxpY/f:webp/h:120/q:80/L3RyYWNrcy85NzdkMWI0MS01ODg4LTQ0ZDctOGU0Yy01N2QyMzQ4NzQ4ZGMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/EJEKZA4Y.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/OTzqoUcfTvgJRGhPlCoXZXzVWpFQB5yO-pygSZ_CTv8/f:webp/h:120/q:80/L3RyYWNrcy9iMTkzMDhmZi05NDMxLTQ4ZTktOWM3Yi01Y2YwMWRkNWVjMjQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/CLIEO8EF.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/71AmI9yoXiFuH0_QYFfKIbExbbNrgzH40oWhWqB2H3s/f:webp/h:120/q:80/L3RyYWNrcy9iOWIyOTczZS1iMmJlLTRiZjAtYjZiMi01N2E2YzgzNTRhOTUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/STWAS8YG.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/ScMAMfeLjX-rPRfi9TbSI-coemrOWDARhyuRTk_cjIw/f:webp/h:120/q:80/L3RyYWNrcy81ZDU1YTRlYy1lZjM0LTQyMjItODMwZi0xOGRlYTgzYmEzOTMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/AY8VHMHV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/QGBMU101QN38cA6c6M9ukxMZvjWMsUrEyHXYR7AAf2s/f:webp/h:120/q:80/L3RyYWNrcy9hNzM2ZWY0Mi0wZDJmLTQwNzktYWRiNC0yNWM1NWM4NWJhMmIucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/MSHLPEBI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/gcIZrPVWZpLDOTz1dV7gyHeympu0yaFhcsd2q82h2mk/f:webp/h:120/q:80/L3RyYWNrcy80NmFjNTIyYi1mZjNlLTRmNzMtYjQ3My1jZmU2MzRjMjZkYWMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/O2D5UHWI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/2hiHbjh7Xa9vaAv8YMT6_tVvXlG5JPuVedPtTOgz1ec/f:webp/h:120/q:80/L3RyYWNrcy9jZTgzNjMxNy03NDMwLTQxOWQtODUwZS05ZDExM2U2MDdiMmUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/AVULMTZZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/yy6sKyMBqxiVgT2DkB-OBj1pEWkmSSmDoD0BaiR607k/f:webp/h:120/q:80/L3RyYWNrcy9iYzQ1NDE0OC02ZTcyLTQwNDctOTVjYy1kNTE2NzA2YWU0MDUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/OCSTAZLL.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/YMKQk8fKtE8p-F9s4dgwkY4nlTlBbLc1pWMvcQ1tYz4/f:webp/h:120/q:80/L3RyYWNrcy8yMjVlZmZjMy1hNGM0LTQ0ZTktYmE3Zi01M2NhYWFmZmJjZWMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/ZJVT7EJ9.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/QYlbU3zpuBO8SpI_PgQe-sce6lVI0IGqVXO1xiV17Cw/f:webp/h:120/q:80/L3RyYWNrcy9hMTE0YWE3NC04NTRhLTQ1NWItODE2OS1kYzkxNTc3MTJiMjcucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/BGSFJW3G.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/hWN2rh53w8c6-JU4FLIyRThJfLRl6QtcYcusl0s3jTo/f:webp/h:120/q:80/L3RyYWNrcy80N2M2MTkxMS0zMmJmLTQzMjQtYTI0OS0xMjRkNGYzM2QwM2YucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/X4DSV7RY.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/ri_NMqo6vH93pSC22ONBF3xtY0QUgBvOdjQF4h_0Vkc/f:webp/h:120/q:80/L3RyYWNrcy8wNzUzNTM3Ny00MWIxLTQ1YzUtYTgwZi00MmFjZjdmMTNmNTYucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/P1LFWE34.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/sDPcJPR3Ajrj21tfosd5qVMRnHKDlMqpinBbUWRMAHA/f:webp/h:120/q:80/L3RyYWNrcy9lNmVmNDYwMi1mNGUyLTRiYzctOWMwZS0yY2YzMDRiYTNmYzcucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/CKJUFGZ0.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/3jJz8tbTBy1I5GugkvmkOtyLDgGCmo3fe4-slvgFGIk/f:webp/h:120/q:80/L3RyYWNrcy9kNTEwODAzMi0xMzViLTQ4Y2QtYjVlYy05ZDU2YjEwYzM2YjAucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/NHPDLIL4.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/cZNfCLCDOAZCEHNI_TPTvpcN-cali0g-L-Bnux8wYuE/f:webp/h:120/q:80/L3RyYWNrcy9mNzQ1MWJkNy04YTAzLTQ2NjMtYWY0MC1kMTcxNzA2N2UzYmQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/6OAXCRFU.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/Xl98YWbvhhAF2MJhHva1jjFf-NNKiYP86uVUHeJpj6U/f:webp/h:120/q:80/L3RyYWNrcy84MmI1NWE0OC1kOTlmLTRjZDItYjJhMC1hNjc0N2JkYjM5YzUucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/2N2VULK1.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/6kkzJSWcBhgkDWVOFyJ3rtGrK6OHSdwc1MuLCJAxQRM/f:webp/h:120/q:80/L3RyYWNrcy85N2M0N2FkYy1jZDljLTQwNDgtOWZlZC1hNTY5YmUxNTE5YTMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/VDHDUBLI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/vnzGSzh0uOOz6LLL2qKYLyomM0Tiqf0FgqJsF84zEN4/f:webp/h:120/q:80/L3RyYWNrcy84OThlZjJjNi1kZDg3LTRiNjktYjBjNC04MGUzNjU4ZTU5ZWQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/L5BG1R32.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/pBHaFl1IUpdnfiqOUNfzwoeh2Sldpbmf_19f5pW2vr8/f:webp/h:120/q:80/L3RyYWNrcy9hMWYyNzk1ZC04MjU5LTQyNWItODIzMi1jZDlhNTY4MmY1MTEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/JGQSECGZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/BSGRQ3w0Bb_kiQZDDG_l888JhIP6uLuojz5Y8jKNzDA/f:webp/h:120/q:80/L3RyYWNrcy9iYzU1YzE4ZC00ZTA2LTQ1ZWItYjFlNS03OWUzMDhhOWI3YmQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/OM6MY2ND.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/6OLTuYrQBpJsmGHnq7HVhnsBd4vrgOWL-oZ_7x3P4Wo/f:webp/h:120/q:80/L3RyYWNrcy9mNDg5YmY2YS04N2QxLTRhNDItOTNkMi0zY2Q4ZjVhOTVlMTMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/POYC40KD.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/NwaP7nhyvMggm3g0udzMtAz0ack6ZPNYaqxemRbaILM/f:webp/h:120/q:80/L3RyYWNrcy82MzE2YzRiZS1kMzM1LTQxNDAtOWY3OS0yMjQzYjNkN2RlNzMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/3APFMC1Y.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/wS5Rcl6qT7Qzb96jcpKbtaxvk3K1QmbDPEFOrM4Fzps/f:webp/h:120/q:80/L3RyYWNrcy9kMjFiZDczNy1lZTRhLTRhODctODkxYS0zNTgxNzQ1MDk0NmEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/XZRKGILM.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/i0GjD0jwH7BGvLc18GfBugOllx6SnbyTr-CuTVbTyXA/f:webp/h:120/q:80/L3RyYWNrcy84Zjk0OGZhOC1jYzQ2LTRkZmUtOTk5Ni02NzZlMzljNTdmYzQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/QNDEFYY8.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/x7b_MuhmYIJNrfaC4ylPlonl2iva9KtnP2Y07e3yFrE/f:webp/h:120/q:80/L3RyYWNrcy83NTUyMmVmNi00Y2RjLTQzNjktYWUwYy0zMGNmNjhjZDM3ZDcucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/CQRANUIS.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/Ypa0a_wYeZqQ_cKqtU1uiwbYknySjeGRUmwnQ8gVHqg/f:webp/h:120/q:80/L3RyYWNrcy9iZjZjOWIwYS0wY2FjLTRkMjYtYTIzNy00NWVmODlkZDgwYjIucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/LN4RGXF4.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/0oZ3rvm63UDiHP-IbWyVBaC5R8cUxF_JcqtTvyGdHvA/f:webp/h:120/q:80/L3RyYWNrcy8wOWI2NGMyZS1lNzE5LTRiNWYtOGQyMi1hMzY3OWIyYzFjZGQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/SJDQV04V.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/wqFNFD1_7AKN1MpbZvurY1cUcpUXQ2ELMfW5Bi9R8VM/f:webp/h:120/q:80/L3RyYWNrcy9lN2MzZjVkNy0yMTEwLTQ3N2YtYmYxMS0wNjg3MjQzMjZjYzEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/66MBUSNQ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/OHrJtmlMFWalaK_YrAnUm1n3K2YlCzSRv_yn6BPUb30/f:webp/h:120/q:80/L3RyYWNrcy81ODllMWU0Ny0xNTY4LTQ5MWMtOGM4MC1hZGQ2YTZmZWVlNTEucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/QIZUFRMM.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/W6Z-2zohBDfZ1U1ULeJJwYyLxaWHmP7FuTtB4rMqRyY/f:webp/h:120/q:80/L3RyYWNrcy8xNTU1ODQ2Ny02YjgxLTQ3ODAtODQzOS02N2EyZjU0NjBmMjgucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/QJQU3MKG.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/YgG_HnKvxYVU2_xHw8BwPepJpQ6Pp-rqeIhW9gybitk/f:webp/h:120/q:80/L3RyYWNrcy82NDhlZjA4MC02YzRiLTRlNTQtYmY3Mi0zNGY2MjAzMGYzNTAucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/UPQQCYST.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/B3Vh8nHb0EUR9iM-IDcpDa_5AA5CT9N_BOSEPQCl_c4/f:webp/h:120/q:80/L3RyYWNrcy83M2MyNDE1Mi1hZWY0LTRhNTEtOTYyMS03MDEzZGEwYjZkZmQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/UJQWPYEV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/5Tu3wluAPJGaz4O2OMi9U4UmgqDhyOt0mHDWChdrJVM/f:webp/h:120/q:80/L3RyYWNrcy8wZmMyNWM0Ni01ZDcwLTRkNTYtOWQ5MS1kY2Q4NGYxMmIxOGMucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/FTO0JMKH.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/CG1YY_kSMMEy2YJy6ZGB2WV3lLrDmwdUK9vDeT_nCrI/f:webp/h:120/q:80/L3RyYWNrcy85MTYyODY3Ny1jODAxLTQ5ZmItOTA2MS0wMjI3MjJhNmFmZDAucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/TRZR5RFH.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/XH3JbkyumWIdOs9Tk0f1WxIcR7fdgrT5qOJVjvm4sM0/f:webp/h:120/q:80/L3RyYWNrcy85MjJmMTJmNC0yZjhkLTRlYWMtYTRiZC05YTM5NmJkNDhjYzkucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/PF4X9LKA.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/qYKg6mmuI2Yl5N_woBql7jJPTVogQMmJsG_SAgS2QKQ/f:webp/h:120/q:80/L3RyYWNrcy80MTQ3OTQyMi00ODk3LTRjNWUtYmJiNy1kMDE0OTk3YjIyNjQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/C2THKNFO.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/W41nwdXwRyOukz1841VUPaEdoiPn5f1-iKmKR4eUxUs/f:webp/h:120/q:80/L3RyYWNrcy8yNTBhNGVmMy05OGI3LTQyMWYtYjBhZi0wZDRhYTU3YWI2ZDgucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/0TJMUXUP.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/KjTkBc7HVT1RnXuHFK7Ac20AxMKyItzq03z2otccVVg/f:webp/h:120/q:80/L3RyYWNrcy85ODkxMmViMi04ZWUxLTRjNDEtOGRiYS1mZTJmNjQwYWQwZGQucG5n" alt="Badge de certificação" loading="lazy"></a>
+        <a class="cert-badge" href="https://hermes.dio.me/certificates/SHONRDNZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado DIO"><img src="https://assets.dio.me/pcofidrxurbpvkmkdAp-a85xese21phcoft6txFGfrk/f:webp/h:120/q:80/L3RyYWNrcy9lMDk0ZWFiNy0wYTQ2LTRmZWYtOTI1Yi1hZDMxMWZjZWVjNjEucG5n" alt="Badge de certificação" loading="lazy"></a>
+  </div></div>
+</section>
 <section id="projects">
-
-  <h2 class="section-title">
-    Projetos
-  </h2>
-
+  <div class="section-head"><div><div class="section-kicker">Portfólio técnico</div><h2 class="section-title">Projetos em destaque</h2></div><p class="section-subtitle">Projetos organizados com foco em backend, APIs, cloud, automação, dados e aplicações web.</p></div>
   <div class="projects-grid">
-
-    <div class="project-card">
-
-      <h3>Password Generator</h3>
-
-      <p>
-        Gerador de senhas seguras com foco em JavaScript e manipulação de DOM.
-      </p>
-
-      <div class="project-links">
-
-        <a href="https://password-generator-ten-pi-11.vercel.app/">
-          Acessar
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="project-card">
-
-      <h3>QR Code Generator</h3>
-
-      <p>
-        Aplicação para geração dinâmica de QR Codes com interface responsiva.
-      </p>
-
-      <div class="project-links">
-
-        <a href="https://hyouem-qr-generator.vercel.app/">
-          Acessar
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="project-card">
-
-      <h3>DIO Open Source</h3>
-
-      <p>
-        Repositório com contribuições open source e práticas com Git/GitHub.
-      </p>
-
-      <div class="project-links">
-
-        <a href="https://github.com/Hyouem/dio-lab-open-source">
-          Repositório
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="project-card">
-
-      <h3>GitHub</h3>
-
-      <p>
-        Perfil com projetos, estudos, automações e aplicações backend.
-      </p>
-
-      <div class="project-links">
-
-        <a href="https://github.com/Hyouem">
-          Perfil
-        </a>
-
-      </div>
-
-    </div>
-
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>Email Report Microservice</h3>
+        <p>Microserviço para geração, armazenamento e envio de relatórios por e-mail, com foco em integração cloud e arquitetura backend.</p>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>Oracle Cloud</span><span>Object Storage</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/email-report-microservice" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>AI Assistant Java</h3>
+        <p>Aplicação Java voltada para integração com IA e automação de respostas, explorando serviços inteligentes no backend.</p>
+        <div class="tags"><span>Java</span><span>IA</span><span>APIs</span><span>Automação</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/ai-assistant-java" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>Docker Manager Backend</h3>
+        <p>Backend para gerenciamento de recursos Docker, com foco em infraestrutura, automação e organização de serviços.</p>
+        <div class="tags"><span>Java</span><span>Docker</span><span>Backend</span><span>Infraestrutura</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/docker-manager-backend" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Python</strong></div>
+        <h3>Appointment Scheduling System</h3>
+        <p>Sistema de agendamento para gerenciamento de horários, compromissos e fluxos de atendimento.</p>
+        <div class="tags"><span>Python</span><span>Backend</span><span>Regras de negócio</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/appointment_scheduling_system" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>Payment API</h3>
+        <p>API para simulação e processamento de pagamentos, estruturada com foco em regras de negócio e arquitetura de serviços.</p>
+        <div class="tags"><span>Java</span><span>REST API</span><span>Backend</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/payment-api" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>Course Platform</h3>
+        <p>API para plataforma de cursos, com estrutura voltada para cadastro, organização e gerenciamento de conteúdos educacionais.</p>
+        <div class="tags"><span>Java</span><span>Backend</span><span>API</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/course-platform" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>Java</strong></div>
+        <h3>Ledger Service</h3>
+        <p>Serviço backend para controle de registros financeiros e movimentações, com foco em consistência e organização de dados.</p>
+        <div class="tags"><span>Java</span><span>Finance</span><span>Backend</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/ledger-service" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
+      <article class="project-card featured-project">
+        <div class="project-topline"><span>Projeto em destaque</span><strong>TypeScript</strong></div>
+        <h3>Text Editor</h3>
+        <p>Editor web para criação e edição de arquivos Markdown, com foco em experiência de uso e componentes frontend.</p>
+        <div class="tags"><span>TypeScript</span><span>React</span><span>Markdown</span></div>
+        <a class="project-link" href="https://github.com/Hyouem/text-editor" target="_blank" rel="noopener noreferrer">Ver repositório →</a>
+      </article>
   </div>
-
+  <div class="repo-panel"><div><h3>47+ Repositórios Públicos</h3><p>Java • Spring • Python • .NET • TypeScript • Cloud • IA</p><a class="btn btn-primary" href="https://github.com/Hyouem" target="_blank" rel="noopener noreferrer">Ver GitHub Completo</a></div><div class="repo-list">
+          <a href="https://github.com/Hyouem" target="_blank" rel="noopener noreferrer">Hyouem</a>
+          <a href="https://github.com/Hyouem/email-report-microservice" target="_blank" rel="noopener noreferrer">email-report-microservice</a>
+          <a href="https://github.com/Hyouem/email-service-backend" target="_blank" rel="noopener noreferrer">email-service-backend</a>
+          <a href="https://github.com/Hyouem/text-editor" target="_blank" rel="noopener noreferrer">text-editor</a>
+          <a href="https://github.com/Hyouem/apple-page-clone" target="_blank" rel="noopener noreferrer">apple-page-clone</a>
+          <a href="https://github.com/Hyouem/blog-cms" target="_blank" rel="noopener noreferrer">blog-cms</a>
+          <a href="https://github.com/Hyouem/angular-dashboard" target="_blank" rel="noopener noreferrer">angular-dashboard</a>
+          <a href="https://github.com/Hyouem/login-page" target="_blank" rel="noopener noreferrer">login-page</a>
+          <a href="https://github.com/Hyouem/ai-assistant-java" target="_blank" rel="noopener noreferrer">ai-assistant-java</a>
+          <a href="https://github.com/Hyouem/course-platform" target="_blank" rel="noopener noreferrer">course-platform</a>
+          <a href="https://github.com/Hyouem/login_app_backend" target="_blank" rel="noopener noreferrer">login_app_backend</a>
+          <a href="https://github.com/Hyouem/social-media-comparer" target="_blank" rel="noopener noreferrer">social-media-comparer</a>
+          <a href="https://github.com/Hyouem/qr_code_generator" target="_blank" rel="noopener noreferrer">qr_code_generator</a>
+          <a href="https://github.com/Hyouem/instagram-copy" target="_blank" rel="noopener noreferrer">instagram-copy</a>
+          <a href="https://github.com/Hyouem/docker-manager-backend" target="_blank" rel="noopener noreferrer">docker-manager-backend</a>
+          <a href="https://github.com/Hyouem/appointment_scheduling_system" target="_blank" rel="noopener noreferrer">appointment_scheduling_system</a>
+          <a href="https://github.com/Hyouem/youtube_downloader" target="_blank" rel="noopener noreferrer">youtube_downloader</a>
+          <a href="https://github.com/Hyouem/lord_of_the_rings" target="_blank" rel="noopener noreferrer">lord_of_the_rings</a>
+          <a href="https://github.com/Hyouem/ledger-service" target="_blank" rel="noopener noreferrer">ledger-service</a>
+          <a href="https://github.com/Hyouem/payment-api" target="_blank" rel="noopener noreferrer">payment-api</a>
+          <a href="https://github.com/Hyouem/project-react" target="_blank" rel="noopener noreferrer">project-react</a>
+          <a href="https://github.com/Hyouem/testes-phyton" target="_blank" rel="noopener noreferrer">testes-phyton</a>
+          <a href="https://github.com/Hyouem/fluxo_whats" target="_blank" rel="noopener noreferrer">fluxo_whats</a>
+          <a href="https://github.com/Hyouem/jump-game" target="_blank" rel="noopener noreferrer">jump-game</a>
+          <a href="https://github.com/Hyouem/landing-page-social-media" target="_blank" rel="noopener noreferrer">landing-page-social-media</a>
+          <a href="https://github.com/Hyouem/exceptions-java" target="_blank" rel="noopener noreferrer">exceptions-java</a>
+          <a href="https://github.com/Hyouem/php-auth-system" target="_blank" rel="noopener noreferrer">php-auth-system</a>
+          <a href="https://github.com/Hyouem/password-generator" target="_blank" rel="noopener noreferrer">password-generator</a>
+          <a href="https://github.com/Hyouem/qr-code-generator" target="_blank" rel="noopener noreferrer">qr-code-generator</a>
+          <a href="https://github.com/Hyouem/portfolio" target="_blank" rel="noopener noreferrer">portfolio</a>
+          <a href="https://github.com/Hyouem?tab=repositories" target="_blank" rel="noopener noreferrer">+17 repositórios</a>
+        </div></div>
 </section>
-
-<!-- CONHECIMENTOS -->
-
-<section id="conhecimentos">
-
-  <h2 class="section-title">
-    Conhecimentos
-  </h2>
-
-  <div class="skills-grid">
-
-    <div class="skill-box">
-      <h3>Linguagens de Programação</h3>
-      <p>
-        Java<br>
-        Python<br>
-        JavaScript<br>
-        TypeScript<br>
-        C<br>
-        C++<br>
-        C#<br>
-        HTML / HTML5<br>
-        SQL
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Frameworks e Bibliotecas</h3>
-      <p>
-        Spring<br>
-        Django<br>
-        Flask<br>
-        FastAPI<br>
-        React<br>
-        Node.js<br>
-        Express<br>
-        Fastify<br>
-        Entity Framework Core<br>
-        Pandas<br>
-        Scikit-Learn<br>
-        TensorFlow<br>
-        Keras<br>
-        OpenCV
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Cloud e Plataformas</h3>
-      <p>
-        Microsoft Azure<br>
-        AWS (Amazon Web Services)<br>
-        Google Cloud Platform (GCP)<br>
-        Cloud Run
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Bancos de Dados</h3>
-      <p>
-        MySQL<br>
-        PostgreSQL<br>
-        SQL Server<br>
-        SQLite<br>
-        MongoDB<br>
-        Neo4j
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Dados, BI e Analytics</h3>
-      <p>
-        Power BI<br>
-        Excel<br>
-        ETL (Extração, Transformação e Carga)<br>
-        Data Modeling<br>
-        PyTorch
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Testes e Qualidade de Software</h3>
-      <p>
-        Jest<br>
-        Cucumber<br>
-        Postman<br>
-        Cypress<br>
-        Selenium<br>
-        JUnit<br>
-        Mockito
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>DevOps e Infraestrutura</h3>
-      <p>
-        Docker<br>
-        Kubernetes<br>
-        Terraform<br>
-        Jenkins
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Ferramentas e Versionamento</h3>
-      <p>
-        Git<br>
-        GitHub<br>
-        GitLab<br>
-        Maven<br>
-        Gradle<br>
-        NPM
-      </p>
-    </div>
-
-    <div class="skill-box">
-      <h3>Sistemas e Infraestrutura</h3>
-      <p>
-        Linux<br>
-        Windows<br>
-        Redes TCP/IP<br>
-        Segurança da Informação<br>
-        Pentest
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BOOTCAMPS -->
-
-<section id="bootcamps">
-
-  <h2 class="section-title">
-    Bootcamps & Formações
-  </h2>
-
-  <div class="bootcamps-box">
-
-    <div class="bootcamps-box">
-
-<p>Accenture - Desenvolvimento Java & Cloud</p>
-<p>Accenture - Python para Análise e Automação de Dados II</p>
-<p>Accenture - Python para Análise e Automação de Dados</p>
-<p>Aceleração Microsoft - Gestão de Dados & IA II</p>
-<p>Aceleração Microsoft - Gestão de Dados & IA</p>
-<p>Aceleração Microsoft - IA Arquitetura de Dados II</p>
-<p>Aceleração Microsoft - IA Arquitetura de Dados</p>
-<p>Aceleração Microsoft AI Agents II</p>
-<p>Aceleração Microsoft AI Agents</p>
-<p>Aceleração Microsoft Week - Vibe Coding</p>
-<p>Almaviva - Back-end com Java & QA</p>
-<p>Avanade - Back-end com .NET e IA II</p>
-<p>Avanade - Back-end com .NET e IA</p>
-<p>Blip - Lógica de Programação</p>
-<p>Bradesco - GenAI & Dados</p>
-<p>CAIXA - Inteligência Artificial na Prática</p>
-<p>CI&T - Backend com Java & AWS</p>
-<p>CI&T - Do Prompt ao Agente II</p>
-<p>CI&T - Do Prompt ao Agente</p>
-<p>DIO Campus Expert 15</p>
-<p>Formação Automação de Testes com Cypress</p>
-<p>Formação CI CD com GitLab</p>
-<p>Formação Fundamentos de Inteligência Artificial</p>
-<p>Formação Github Certification</p>
-<p>Formação Google Cloud Platform (GCP) Specialist</p>
-<p>Formação IoT Specialist</p>
-<p>Formação Java Developer II</p>
-<p>Formação Java Developer</p>
-<p>Formação Java Fundamentals II</p>
-<p>Formação Java Fundamentals</p>
-<p>Formação JavaScript Developer II</p>
-<p>Formação JavaScript Developer</p>
-<p>Formação Lógica de Programação</p>
-<p>Formação Machine Learning Specialist</p>
-<p>Formação Power BI Analyst II</p>
-<p>Formação Power BI Analyst</p>
-<p>Formação Python Backend Developer</p>
-<p>Formação Python Fundamentals II</p>
-<p>Formação Python Fundamentals</p>
-<p>Formação Quality Assurance (QA) Experience</p>
-<p>Formação Scrum Master Certification</p>
-<p>Formação SQL Database Specialist II</p>
-<p>Formação SQL Database Specialist</p>
-<p>Formação TypeScript Fullstack Developer</p>
-<p>Formação UI UX Designer</p>
-<p>Formação Unity 3D Game Developer II</p>
-<p>Formação Unity 3D Game Developer</p>
-<p>GitHub Copilot - Código na Prática</p>
-<p>Jornada Para o Futuro - Node.js</p>
-<p>Klabin - Excel e Power BI Dashboards 2026 II</p>
-<p>Klabin - Excel e Power BI Dashboards 2026</p>
-<p>Klabin - Excel e Power BI Dashboards</p>
-<p>Luizalabs - Back-end com Python - 2ª Edição II</p>
-<p>Luizalabs - Back-end com Python - 2ª Edição III</p>
-<p>Luizalabs - Back-end com Python - 2ª Edição</p>
-<p>Luizalabs - Back-end com Python II</p>
-<p>Luizalabs - Back-end com Python</p>
-<p>Lupo - Primeiros Passos com Inteligência Artificial</p>
-<p>Microsoft Azure Cloud Native 2026 II</p>
-<p>Microsoft Azure Cloud Native 2026</p>
-<p>Microsoft Certification Challenge #5 - AI 102 II</p>
-<p>Microsoft Certification Challenge #5 - AI 102</p>
-<p>Microsoft Certification Challenge #5 - AZ-204 II</p>
-<p>Microsoft Certification Challenge #5 - AZ-204</p>
-<p>Microsoft Certification Challenge #5 - DP 100 II</p>
-<p>Microsoft Certification Challenge #5 - DP 100</p>
-<p>Neo4J - Análise de Dados com Grafos II</p>
-<p>Neo4J - Análise de Dados com Grafos</p>
-<p>Nexa - Fundamentos de IA Generativa com Bedrock</p>
-<p>Nexa - Machine Learning e GenAI na Prática II</p>
-<p>Nexa - Machine Learning e GenAI na Prática</p>
-<p>Riachuelo - Cibersegurança</p>
-<p>Riachuelo - Primeiros Passos com Java</p>
-<p>Santander 2025 - Back-End com Python II</p>
-<p>Santander 2025 - Back-End com Python</p>
-<p>Santander 2025 - Ciência de Dados com Python</p>
-<p>Santander AI Youtube Creator</p>
-<p>Suzano - Python Developer</p>
-<p>TIVIT - .Net com GitHub Copilot</p>
-<p>TOTVS - Fundamentos de Engenharia de Dados e Machine Learning</p>
-<p>Vivo - Python AI Backend Developer II</p>
-<p>Vivo - Python AI Backend Developer</p>
-
-</div>
-
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-  <div class="contact-box">
-
-    <h2 class="section-title">
-      Contato
-    </h2>
-
-    <div class="contact-links">
-
-      <a href="mailto:mauricio72613@gmail.com">
-        mauricio72613@gmail.com
-      </a>
-
-      <a href="https://github.com/Hyouem">
-        GitHub
-      </a>
-
-      <a href="https://www.linkedin.com/in/mauricio-dos-santos-/">
-        LinkedIn
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Maurício Dos Santos
-</footer>
-
+<section id="conhecimentos"><div class="section-head"><div><div class="section-kicker">Stack</div><h2 class="section-title">Conhecimentos</h2></div><p class="section-subtitle">Tecnologias e ferramentas utilizadas em estudos, projetos e prática profissional.</p></div><div class="skills-grid">
+<div class="skill-box"><h3>Linguagens</h3><p>Java<br>SQL<br>TypeScript<br>JavaScript<br>Python<br>C#<br>HTML / CSS</p></div>
+<div class="skill-box"><h3>Backend & Frameworks</h3><p>Java<br>Spring Boot<br>APIs REST<br>.NET<br>Node.js<br>Express<br>Fastify<br>Django<br>Flask<br>FastAPI</p></div>
+<div class="skill-box"><h3>Cloud & DevOps</h3><p>Azure<br>AWS<br>Google Cloud Platform<br>Docker<br>Kubernetes<br>GitLab CI/CD<br>GitHub</p></div>
+<div class="skill-box"><h3>Dados & IA</h3><p>Power BI<br>Excel<br>ETL<br>Machine Learning<br>GenAI<br>Neo4j<br>Pandas</p></div>
+<div class="skill-box"><h3>Bancos de Dados</h3><p>PostgreSQL<br>MySQL<br>SQL Server<br>SQLite<br>MongoDB<br>Neo4j</p></div>
+<div class="skill-box"><h3>Qualidade</h3><p>JUnit<br>Mockito<br>Cypress<br>Postman<br>Selenium<br>QA<br>Scrum</p></div>
+</div></section>
+<section id="contact"><div class="contact-box"><div class="section-kicker">Contato</div><h2 class="section-title">Vamos construir algo sólido?</h2><div class="contact-links"><a href="mailto:mauricio72613@gmail.com">mauricio72613@gmail.com</a><a href="https://github.com/Hyouem" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/mauricio-dos-santos-/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></section>
+</main><footer>© 2026 Maurício Dos Santos</footer>
 </body>
 </html>
